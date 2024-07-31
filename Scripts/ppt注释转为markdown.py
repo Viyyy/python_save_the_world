@@ -5,6 +5,7 @@
 
 import os
 import re
+from datetime import datetime
 import xml.etree.ElementTree as ET
 from .zip_helper import unzip_to_temp
 
@@ -72,8 +73,8 @@ def ppt_notes2md(file_path:str, save_dir:str)->str:
     :param save_dir: 保存markdown文件的目录
     :return: 保存markdown文件的路径
     '''
-    file_name = os.path.basename(file_path)
-    save_path = os.path.join(save_dir, f'{file_name}.md')
+    file_name = os.path.basename(file_path).split('.')[0]
+    save_path = os.path.join(save_dir, f'{file_name}_{datetime.now().strftime("%Y%m%d%H%M%S")}.md')
     
     notes = extract_ppt_notes(file_path)
     assert len(notes) > 0, f'在{file_path}中没有找到任何注释'
