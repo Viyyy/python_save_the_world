@@ -3,6 +3,9 @@
 # Created on: 2024-12-11 09:55:28
 # Description: 一个可移动的按钮，点击按钮可以点击其他位置
 
+'''
+pip install pyautogui
+'''
 
 import pyautogui as pg
 import tkinter as tk
