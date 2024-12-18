@@ -117,7 +117,8 @@ def open_new_video(video_url: str):
 def main():
     start = 27643737
     end = 27643801
-    url_template = r"https://changjiang.yuketang.cn/v2/web/xcloud/video-student/18949303/{video_id}?hide_return=1"
+    student_id = None  # 学生ID，可在地址栏中找到
+    url_template = r"https://changjiang.yuketang.cn/v2/web/xcloud/video-student/{student_id}/{video_id}?hide_return=1"
 
     for video_id in range(start, end + 1):
         start_time = time.time()
