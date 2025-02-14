@@ -177,4 +177,12 @@ with gr.Blocks(title="Audio Separation with Demucs") as demo:
 if __name__ == "__main__":
     os.makedirs(MODEL_DIR, exist_ok=True)
     os.makedirs(AUDIO_DIR, exist_ok=True)
-    demo.launch(server_name="0.0.0.0", server_port=7860)
+    try:
+        demo.launch(server_name="0.0.0.0", server_port=7860)
+    finally:
+        console.print("🧹 Cleaning up...")
+        del model
+        import shutil
+        # 删除Audio目录
+        shutil.rmtree(AUDIO_DIR)
+        gc.collect()
